@@ -1,4 +1,4 @@
-package edu.btec.springwebtest.controller;
+package edu.btec.springwebtest.controller.admin;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.btec.springwebtest.domain.Category;
@@ -42,6 +43,12 @@ public class CategoryController {
 		return "admin/categories/addOrEdit";
 	}
 
+//	@GetMapping("add")
+//	@ResponseBody
+//	public String add() {		
+//		return "admin/categories/addOrEdit";
+//	}
+	
 	@GetMapping("edit/{categoryId}")
 	public ModelAndView edit(ModelMap model, @PathVariable("categoryId") Long categoryId) {
 		Optional<Category> opt = categoryService.findById(categoryId);
